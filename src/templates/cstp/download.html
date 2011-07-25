@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style type="text/css">
+	.data
+	{
+		position: relative;
+		left: 30px;
+		margin-bottom: 25px;
+	}
+	
+	li a
+	{
+		text-decoration: none;
+	}
+	
+	#presentfile
+	{
+		cursor: pointer;
+		color: #FF7800;
+	}
+</style>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="../static/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery-ui-1.8.10.custom.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		
+		$('#presentfile').parent().accordion({
+			header: '#presentfile',
+			clearStyle: true,
+            collapsible: true,
+            active: false,
+            icons: false
+		});
+		
+	});
+</script>
+{% endblock %} 
+
+{% block primarycontent %}
+<h3>學程資料</h3>
+<div class="data">
+	<ul>
+		<li><a href="http://www.academic.fju.edu.tw/about%20plan/%E4%BF%AE%E8%AE%80%E5%AD%B8%E5%88%86%E5%AD%B8%E7%A8%8B%E7%94%B3%E8%AB%8B%E5%96%AE.doc" target="_blank">學程申請單</a></li>
+		<li>
+			<span id="presentfile">招生說明會投影片(3月30日)</span>
+			<div>
+				<div style="width:425px" id="__ss_7508833"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/ShaoKaiChiu/ss-7508833" title="雲端服務趨勢學程說明會">雲端服務趨勢學程說明會</a> <a href="https://docs.google.com/a/csrc.im.fju.edu.tw/uc?id=16x3r5SPrC7_gUTaonVfHLetVVMl2kaZ5Mkg3EQPF591jtmq7S6mmm3wvDkf9&export=download&hl=zh_TW">下載</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7508833?rel=0" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div>
+			</div>
+		</li>
+	</ul>
+</div>
+<h3>其他資料</h3>
+<div class="data">
+	<ul>
+		<li><a href="https://docs.google.com/uc?id=16x3r5SPrC7_gUTaonVfHLetVVMl2kaZ5Mkg3EQPF591jtmq7S6mmm3wvDkf9&export=download&hl=zh_TW" target="_blank">輔仁大學100學年度學程一覽表</a></li>
+	</ul>
+</div>
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends "base.html" %} 
+
+{% block title %}雲端服務趨勢學程-課程一覽表{% endblock %} 
+
+{% block css %}
+<style type="text/css" media="screen">
+.content > table
+{
+	width: 400px;
+	border: 1px solid;
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 1.5em;
+}
+
+.content > table > tbody > tr > td
+{
+	border: 1px solid;
+}
+</style>
+{% endblock %}
+
+{% block primarycontent %} 
+            <div class="post">
+                <div class="header">
+                    <h3>課程一覽表</h3>                    
+                </div>
+                <div class="content">  
+					<table>
+                        <tr>
+                            <td></td>
+                            <td><center><font size="3"><b>課程名稱</b></font></center></td>
+                            <td><center><font size="3"><b>學分數/選別</b></font></center></td>
+                        </tr>					
+						<tr>
+							<td rowspan="3">先修課程</td>
+							<td>計算機概論</td>
+							<td>3/必</td>
+						</tr>
+                        <tr>
+                            <td>會計學</td>
+                            <td>3/必</td>
+                        </tr>
+                        <tr>
+                            <td>統計學</td>
+                            <td>3/必</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">必修課程</td>
+                            <td>雲端應用平台概論</td>
+                            <td>3/必</td>
+                        </tr>
+                        <tr>
+         
+                            <td>雲端資訊系統專題</td>
+                            <td>3/必</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="8">核心課程</td>
+                            <td>Web程式設計</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                    
+                            <td>雲端應用程式設計</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+     
+                            <td>企業資源規劃</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                  
+                            <td>商業智慧</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                
+                            <td>雲端企業服務系統</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                 
+                            <td>雲端服務軟體工廠</td>
+                            <td>3/選</td>
+                        </tr>    
+                        <tr>
+            
+                            <td>統計軟體應用</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+            
+                            <td>資料採礦</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="7">選修課程</td>
+                            <td>資料庫管理</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                 
+                            <td>資訊安全</td>
+                            <td>3/選</td>
+                        </tr>    
+                        <tr>
+     
+                            <td>系統分析與設計</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                 
+                            <td>成本與管理會計</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+                     
+                            <td>生產與作業管理</td>
+                            <td>3/選</td>
+                        </tr>    
+                        <tr>
+             
+                            <td>供應鏈管理</td>
+                            <td>3/選</td>
+                        </tr>
+                        <tr>
+           
+                            <td>創新與創業管理</td>
+                            <td>3/選</td>
+                        </tr>                                                                                                                        						
+					</table>         
+					<br />
+					
+					<style scoped="scoped">
+					   ul.star-shaped-bullet { margin: 0; list-style: none; text-align: left }
+					   ul.star-shaped-bullet li:before { content: "\2606\a0" }
+					</style>
+					<font color="red">
+					<ul class="star-shaped-bullet">					
+					    <li>學程總學分數：24學分</li>
+					    <li>碩士班及在職碩士班同學可以雲端應用為主題的碩士論文抵2門必修課</li>
+					</ul>
+					</font>
+			        <br />
+					
+					<p>雖然學程學生必須修過Java程式設計先修課程，也可以任意搭配核心課程，但由於背景不同，建議IT背景和非IT背景同學可參考以下課程地圖：</p>
+					<img src="../static/images/coursemap.png" />
+					           
+                </div>  
+                              
+                <div class="footer">
+                    <ul>                          
+                        <li>
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style ">
+                            <a href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=ra-4d79d8d84b957456" class="addthis_button_compact">Share</a>
+                            <span class="addthis_separator">|</span>
+                            <a class="addthis_button_facebook"></a>
+		                    <a class="addthis_button_plurk"></a>
+		                    <a class="addthis_button_2tag"></a>
+		                    <a class="addthis_button_google"></a>
+                            </div>
+                            <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d79d8d84b957456"></script>
+                            <!-- AddThis Button END -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                
+{% endblock %}

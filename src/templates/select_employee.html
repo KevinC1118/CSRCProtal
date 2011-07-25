@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css" />
+	</head>
+	<body>
+        <table class="centered-table">
+            <tr>
+                <th>日期</th>
+                <th>時間</th>
+                <th>地點</th>
+                <th>工作摘要</th>
+                <th>金額</th>
+                <th>時數</th>
+            </tr>
+            {% for worker in employee %}
+            <tr>
+                <td>{{ worker.working_date }}</td>
+                <td>{{ worker.working_bhour }}~{{ worker.working_ehour }}</td>
+                <td>{{ worker.working_area }}</td>
+                <td>{{ worker.working_content }}</td>
+                <td>{{ worker.pay }}</td>
+                <td>{{ worker.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+
+
+	</body>
+</html>

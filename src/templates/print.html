@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/static/css/printpage.css" />
+<title>活動簽到表</title>
+</head>
+
+<body class="oneColElsCtr">
+
+<div id="container">
+  <div id="mainContent">
+        <!--
+        <br>活動編號：{{activityinfo.activity_id}}
+        {%if activityinfo%}
+        <br>活動名稱：{{ activityinfo.activity_name}}，活動地點{{activityinfo.site}}
+        <br>活動時間：{{ activityinfo.activity_start}} ～  {{activityinfo.activity_end}}
+        <table border="1" cellpadding="2" cellspacing="1">
+        <tr>
+            <td>姓名</td>
+            <td>學號</td>
+            <td>E-mail</td>
+            <td>報到</td>
+        </tr>
+        {% for search_result in search_results %}    
+            {% if search_result %}
+            <tr>
+                <td>{{search_result.name}}</td>
+                <td>{{search_result.stu_id}}</td>
+                <td>{{search_result.mail}}</td>
+                <td></td>
+            </tr>
+            {%endif%}
+        {% endfor %}
+        {% endif %}
+        </table>
+        -->
+	    {{printcontent}}
+	<!-- end #mainContent -->
+  </div>
+<!-- end #container -->
+</div>
+</body>
+</html>

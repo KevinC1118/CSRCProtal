@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+		{% block title %}輔仁大學雲端服務研究中心{% endblock %}
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="/static/css/collapsible-panels_response.css" />
+		{% endblock %}		
+		{% block js %}
+		<script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+		
+		       //回覆面板
+            $(document).ready(function(){
+                //hide message_body after the first one
+                $(".message_list .reply_body").hide();
+                //hide message li after the 5th
+                //$(".message_list li:gt(4)").hide();
+            
+                
+                //toggle message_body
+                $(".reply_head").click(function(){
+                	if($(this).next(".reply_body").is(':hidden'))
+                    	$(this).next(".reply_body").show('fast');
+                	else
+                		$(this).next(".reply_body").hide('fast');
+                    //return false;
+                });
+            
+                //collapse all messages
+                $(".collpase_all_message").click(function(){
+                    $(this).parents("p").prevAll("ol").children("li").children(".reply_body").slideUp(500);
+                    return false;
+                });
+                //show all messages
+                //$(".show_all_message").click(function(){
+                //    $(this).hide()
+                //    $(".show_recent_only").show()
+                //    $(".message_list li:gt(4)").slideDown()
+                //    return false;
+                //});
+            
+                //show recent messages only
+                //$(".show_recent_only").click(function(){
+                //    $(this).hide()
+                //    $(".show_all_message").show()
+                //    $(".message_list li:gt(4)").slideUp()
+                //    return false;
+                //});
+            
+            });
+            </script>
+		{% endblock %}   
+
+				{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+
+		         {% block primarycontent %}
+		         	<script type="text/javascript" src="/static/js/set_cookie.js"></script>
+				 	<script type="text/javascript" src="http://www.google.com/jsapi"></script> <script type="text/javascript" language="javascript"> google.load("jquery", "1.3"); </script>	
+					{% for activities in activity %}
+						<div>{{ activities.activity_name }}</div>
+						活動內容:</br>
+						<input type="hidden" value="{{activities.content}}" id="content_{{activities.activity_id}}">
+						<script type="text/javascript">
+ 											
+                                            a = document.getElementById("content_{{activities.activity_id}}").value;
+                                            var regex= /\n/gi;
+                                            document.write("<div>");
+                                            document.write(a.replace(new RegExp("\n","g"),"<br />"));
+                                            document.write("</div>");
+           				</script>
+						
+						<div>活動開始時間:{{ activities.activity_start }}</div>
+						<div>活動結束時間:{{ activities.activity_end }}</div>
+						
+						</br></br>
+						<div>報名開始時間:{{ activities.sign_start }}</div>
+						<div>報名結束時間:{{ activities.sign_end }}</div>
+		
+					{% endfor %}
+	
+					<a href="/activity/sign">報名</a>
+
+    				<br><br><br>
+    				<a>我有話要說</a>
+   
+				    <form name="forum" method="post" action="discuss">
+       					<div>代號<input type="text" name="editor1"></div>
+       
+				        <div>想說的話<textarea name="content" cols="50" rows="3"></textarea></div>
+       					<div><input type="submit" value="發佈" onclick="saveName(forum.editor1.value)"></div>
+    				</form>
+                    <p></p>
+                    
+                    <div style="padding:100px 0 0 0";></div> <!-- 分隔用 -->
+                    <!-- 回覆區 -->
+                    
+                    {% for y in obj %}
+                    <div class="response_default">
+                        <div class = "response_body">
+                        <ol class="message_list">
+                        <li>
+                            <p class="question_head"><cite>{{ y.0.0 }}:</cite><span class="timestamp">發問者</span></p>
+                            <div class="question_body">
+                                
+                                <input type="hidden" value="{{y.0.1}}" id="content_{{y.0.2}}">
+								<script type="text/javascript">
+ 											
+                                            a = document.getElementById("content_{{y.0.2}}").value;
+                                            var regex= /\n/gi;
+                                            document.write("<div>");
+                                            document.write("<pre class='response_pre'>") ;
+                                            document.write(a.replace(new RegExp("\n","g"),"</br>"));
+                                            document.write("</pre>") ;
+                                            document.write("</div>");
+           						</script>
+                            </div>
+                        </li>
+                        <!-- 回應輸入區塊 head -->
+                        {% for x in y.1 %}
+                        <li>
+                            <p class="reply_head" name="question_{{y.0.2}}"><cite>{{ x.0 }}:</cite> <span class="timestamp">#{{ x.2 }}</span></p>
+                                <div class="reply_body" id="menuId{{y.0.2}}">
+                                <input type="hidden" value="{{x.1}}" id="content_{{y.0.2}}_{{x.2}}">
+								<script type="text/javascript">
+ 											
+                                            a = document.getElementById("content_{{y.0.2}}_{{x.2}}").value;
+                                            var regex= /\n/gi;
+                                            document.write("<div>");
+                                            document.write("<pre class='response_pre'>") ;
+                                            document.write(a.replace(new RegExp("\n","g"),"</br>"));
+                                            document.write("</pre>") ;
+                                            document.write("</div>");
+           						</script>
+                                
+                                </div>
+                        </li>
+                        {% endfor %}
+                        </ol>
+                        <p class="collapse_buttons"><a href="#" class="collpase_all_message">Collapse all</a><label onclick="document.getElementById('table_{{y.0.2}}').style.display='block';postcontent_{{y.0.2}}.focus();getUserName('posteditor_{{y.0.2}}')">留言</label></td></p>
+                        <form id='form_{{y.0.2}}' method='post' action="/activity/add_forum">
+                            <input type='hidden' name='forum_id' value='{{y.0.2}}'/>
+                            <table id='table_{{y.0.2}}' width="30%" border="0"  style="display:none">
+                                <tr>
+                                    <td><div id="postname_{{y.0.2}}">代號:</div></td>
+                                    <td><input type="text" name="editor" id="posteditor_{{y.0.2}}"/></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><textarea name='content' id='postcontent_{{y.0.2}}' cols='30' rows='2'></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td width='3%'><input id='post_{{y.0.2}}' type='submit' value='Post' ; onclick="saveName(posteditor_{{y.0.2}}.value)"/></td>
+                                    <td width='3%'><input type='button' id='close_{{y.0.2}}' value='隱藏' onclick="document.getElementById('table_{{y.0.2}}').style.display='none';document.getElementById('opbutton_{{y.0.2}}').style.display='block'"/></td>
+                                    <td width='94%'>
+                                </tr>
+                            </table>
+                        </form>
+                        </div>
+                        <!-- 回應輸入區塊 tail -->
+                        </div>
+                        <div style="padding:100px 0 0 0";></div>
+                        {% endfor %}
+		        {% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style type="text/css">
+	.data
+	{
+		position: relative;
+		left: 30px;
+		margin-bottom: 25px;
+	}
+	
+	ul li ul
+	{
+		list-style-position: inside;
+	}
+	
+	ul li
+	{
+		line-height: 3em;
+	}
+	
+	li strong
+	{
+		font-size: 1.4em;
+	}
+</style>
+{% endblock %}
+
+{% block primarycontent %}
+<h3>中心使命</h3>
+<div class="data" style="left: 20px;">
+<p>建立商業應用的共通雲端平台, 開設相關課程, 培育能利用雲端資訊系統實際解決管理問題的人才, 讓大學院校師生、軟體公司、產業顧問、和中小企業在此平台上教學、研究、開發、及使用雲端服務。</p>
+</div>
+<h3>中心願景</h3>
+<div class="data">
+	<ul>
+		<li><strong>管理創意能快速變成雲端服務</strong>
+			<ul>
+				<li>雲端服務是上網就能使用的應用軟體，使用者不需要購買軟體和硬體，也不需要安裝，直接使用即可。</li>
+			</ul>
+		</li>
+		<li><strong>雲端服務可彼此無縫整合</strong>
+			<ul>
+				<li>例如，企管系開發的銷售管理服務可和統資系開發的統計分析服務無縫整合成銷售分析服務。</li>
+			</ul>
+		</li>
+		<li><strong>發展國人自製的雲端平台(PaaS, Platform as a Service)和雲端服務(SaaS, Software as a Service )，不再被國外軟體獨占。</strong>
+			<ul>
+				<li>不是只有MS, SAP, Oracle能做軟體，台灣也能。</li>
+			</ul>
+		</li>
+		<li><strong>培養具備雲端知識和技術的學生，讓研發生根，台灣才能在硬體世界第一之外，也變成軟體世界第一。</strong></li>
+	</ul>
+</div>
+<h3>中心目標</h3>
+<div class="data">
+	<ul>
+		<li><strong>在既有的服務架構上，師生和業界可輕鬆開發雲端服務，把管理理論變成有用工具。</strong></li>
+		<li><strong>和企業接軌，學校教的和學生學的就是企業需要的雲端服務的知識和技術。</strong></li>
+		<li><strong>輔導中小企業使用雲端服務，雲端就是學生的最佳實習場所。</strong></li>
+		<li><strong>累積研發成果，讓輔仁大學的雲端服務越來越豐富。</strong></li>
+	</ul>
+</div>
+{% endblock %}

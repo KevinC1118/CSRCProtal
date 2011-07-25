@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}公告管理{% endblock %}
+
+{% block css %}
+     <link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css" media="screen"/> 
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/static/js/ckeditor/adapter/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var config = {
+					extraPlugins : 'autogrow'
+			};
+			
+			$('textarea').ckeditor(config);
+		});
+	</script>
+    <script type="text/javascript">
+	   function checkForm() {
+	    if (window.confirm("確定刪除")) {
+	     return true;
+	    }
+	    return false;
+	   }
+    </script>
+{% endblock %}
+
+{% block primarycontent %}
+
+<table class="centered-table">
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>類別</th>
+                <th>主旨</th>
+                <th>公告日期</th>
+                <th>刪除</th>
+                <th>修改</th>
+            </tr>
+            {% for publish in publishs %}
+            <tr>
+                <!-- <td>{{ publish.id }}</td> -->
+                <td>{{ publish.type }}</td>
+                <td><a href="/publish/publish_detail/{{ publish.id }}">{{ publish.title }}</a></td>
+                <td>{{ publish.publish_date|date:"Y-m-d" }}</td>
+                <td>
+                    <form action="/publish/delete_publish/{{ publish.id }}" method="post" onsubmit="return checkForm()">                        
+                        <input type="submit" value="刪除">
+                    </form>
+                </td>
+                <td>
+                    <form action="/publish/edit_publish/{{ publish.id }}" method="post">
+                        <input type="hidden" value="wait_new" name="update"> 
+                        <input type="hidden" value="{{ publish.id }}" name="update_id">
+                        <input type="submit" value="修改">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+        <form action="/publish/insert_publish" method="post">
+            <div>公告類別: <input type="text" name="type" /></div>
+            <div>公告標題: <input type="text" name="title" size="80" /></div>
+            <div>公告內容：<textarea id="content" name="content"></textarea></div>
+            <div><input type="submit" value="新增公告"></div>
+        </form>
+
+{% endblock %}

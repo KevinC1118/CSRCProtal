@@ -1,0 +1,37 @@
+table { 
+  border: 0; 
+  font-family: arial; 
+  font-size:15px; 
+} 
+th { 
+  background-color:#EBFFFF; 
+} 
+td { 
+  border-bottom:1 solid #737373; 
+} 
+.fail { 
+  color:#FF0000; 
+}
+.centered-table {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#primarycontent {
+	width: auto;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+BODY
+{
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+form input
+{
+	margin: 5px 2px 5px 0;
+}

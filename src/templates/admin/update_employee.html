@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}修改工讀生資料{% endblock %}
+
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css" />
+    <link rel="stylesheet" href="/static/css/ui.datepicker.css"
+            type="text/css" media="screen" title="core css file" charset="utf-8" />
+{% endblock %}
+
+{% block login %}
+     <div class="login">{{ user }}</div>
+{% endblock %}
+
+{% block primarycontent %}
+
+    {% for worker in employee %}
+    <form action="/employee/update_employee/{{ worker.id }}" method="post">
+        <input type="hidden" value="true" name="update">
+        姓名：<input type="text" value="{{ worker.name }}" name="new_name"><br>        
+        時薪：<input type="text" id="dateinput" value="{{ worker.hourly_pay }}" name="new_pay"><br>
+        
+        <input type="submit" value="修改">
+        <input type="button" value="取消回上頁" onclick= "window.location.href='/admin/employee'">
+    </form>
+    {% endfor %}
+
+{% endblock %}
+{% block secondarycontent %}
+
+
+{% endblock %}
+

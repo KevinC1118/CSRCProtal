@@ -1,0 +1,60 @@
+application: csrc-im
+version: 5
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static
+ 
+- url: /admin
+  script: /admin/index.py  
+  login: required
+- url: /admin/publish
+  script: ./admin/publish/admin_publish.py
+  login: admin  
+- url: /publish/.*
+  script: ./admin/publish/admin_publish.py
+  login: admin  
+- url: /admin/employee
+  script: /admin/employee/admin_employee.py
+  login: admin
+- url: /employee/.*
+  script: /admin/employee/admin_employee.py  
+  login: required
+- url: /admin/.*
+  script: /admin/index.py  
+  login: admin
+  
+- url: /activity
+  script: ./activity/activity.py
+- url: /activity/.*
+  script: ./activity/activity.py
+  
+- url: /ActivityMain
+  script: ./admin/activity/activitymain.py
+- url: /CreateActivity/.*
+  login: admin
+  script: ./admin/activity/createactivity.py 
+- url: /ActivityModify/.*
+  login: admin
+  script: ./admin/activity/activitymodifylist.py
+- url: /Modify/.*
+  login: admin
+  script: ./admin/activity/modify.py
+- url: /Sendmail/.*
+  login: admin
+  script: ./admin/activity/sendmail.py
+
+- url: /cstp
+  script: ./cstp/main.py
+- url: /cstp/.*
+  script: ./cstp/main.py
+
+- url: /mobile/cstp
+  script: ./mobile/cstp/main.py
+- url: /mobile/cstp/.*
+  script: ./mobile/cstp/main.py
+
+- url: /.*
+  script: ./index.py

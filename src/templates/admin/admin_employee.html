@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}工讀生管理{% endblock %}
+
+{% block css %}
+        <link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css" />
+        <link rel="stylesheet" href="/static/css/ui.datepicker.css"
+            type="text/css" media="screen" title="core css file" charset="utf-8" />
+        <style type="text/css">
+            #secondarycontent {
+                width: 280px;
+            }
+        </style>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+       function checkForm() {
+        if (window.confirm("確定刪除?")) {
+         return true;
+        }
+        return false;
+       }
+       </script>
+    
+{% endblock %}
+
+{% block primarycontent %}
+
+         <table class="centered-table">
+            <tr>
+                <th>姓名</th>
+                <th>帳號</th>
+                <th>時薪</th>
+                <th>本月時數</th>
+                <th>刪除</th>
+                <th>修改</th>
+                
+            </tr>
+            {% for worker in personal_data %}
+            <tr>
+                <td><a href="/employee/show_workinghours/{{ worker.1.mail }}">{{ worker.1.name }}</a></td>
+                <td>{{ worker.1.mail }}</td>
+                <td>{{ worker.1.hourly_pay }}</td>
+                <td>{{ worker.0 }}</td>
+                <td>            
+                    <form action="/employee/delete_employee/{{ worker.1.id }}" method="post" onsubmit="return checkForm()">
+                        <input type="submit" value="刪除">
+                    </form>
+                </td>
+                <td>
+                    <form action="/employee/edit_employee/{{ worker.1.id }}" method="post">                                              
+                        <input type="submit" value="修改">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}
+
+{% block secondarycontent %}
+        新增工讀生:<br>
+        <form action="/employee/add_employee" method="post">
+            <div>姓名:<input type="text" name="name" value="" /></div>
+            <div>G-mail: <input type="text" name="mail" value="" /></div>
+            <div>時薪: <input type="text" name="hourly_pay" value="" /></div>            
+            <input type="submit" value="送出">
+        </form>
+{% endblock %}
+
