@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+		{% block title %}輔仁大學雲端服務研究中心{% endblock %}
+		{% block css %}{% endblock %}		
+		{% block js %}
+			<script type="text/javascript" src="../static/js/check.js"></script>
+		{% endblock %}   
+			{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+			    {% block primarycontent %}
+		         	<form name="add" method="post" action="/activity/signup">
+		         	<table>
+		         	<tr>
+		         		<td align="right">
+	        				<div>姓名<input name="name" type="text" id="name"><b style="color:red">*</b></div>
+	        			</td>
+	        		</tr>
+        				<!--<div>學號 <input name="stu_id" type="text" ></div>-->
+        			<tr>
+        				<td align="right">
+        					<div>E-mail<input name="mail" type="text" ><b style="color:red">*</b></div>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">
+        					<div>社群<input name="community" type="text"></div>
+        				</td>
+        			</tr>
+        			<!--<tr>
+        				<td align="right">
+        					<div>活動日期</div>
+        				</td>
+        			</tr>-->
+        			<tr>
+        				<td align="right">
+        					<div>公司名稱<input name="company" type="text"></div>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">
+        					<div>部門<input name="department" type="text"></div>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">
+        					<div>職稱<input name="job_title" type="text"></div>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">
+        					<div>連絡電話<input name="phone" type="text" ></div>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>
+	        				<input name="activity_id" value="{{ id }}" type="hidden">
+	        				<div><input type="button" onClick="reg_add();" value="送出"></div>
+	        			</td>
+	        		</tr>
+        			</table>
+    				</form>
+		        {% endblock %}
+			    {% block secondarycontent %}					
+					<h3>關於本中心</h3>
+					<div class="content">
+						<img src="" class="picB" alt="123" />
+						<p><strong>FJU CSRC</strong><br></br>雲端服務研究中心<a href="#">More ...</a></p>
+					</div>				
+					<h3>Topics</h3>
+					<div class="content">
+						<ul class="linklist">
+							<li class="first"><a href="#">Accumsan congue (32)</a></li>
+							<li><a href="#">Dignissim nec augue (14)</a></li>
+							<li><a href="#">Nunc ante elit nulla (83)</a></li>
+							<li><a href="#">Aliquam suscipit (74)</a></li>
+						</ul>
+					</div>
+		        {% endblock %}
+				{% block footer %}	
+					&copy; FJU CSRC. All rights reserved.
+				{% endblock %}

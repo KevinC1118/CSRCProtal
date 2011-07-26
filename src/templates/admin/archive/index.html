@@ -1,0 +1,46 @@
+{% extends "admin/archive/base.html" %}
+
+{% load youtube_tags %}
+
+{% block title %}檔案庫 | 輔仁大學雲端服務研究中心{% endblock %}
+
+{% block primarycontent %}
+	<h3>檔案庫</h3>
+	
+	<div class="content">
+		
+		<ol class="video_list">
+			<li class="list_title"><h4>Youtube</h4></li>
+			{% for entry in youtube_feed.entry %}
+				{% if entry.media.private == None %}
+					<li class="video_item">
+						<div class="video_thumbnail">
+							<a href="{{ entry.media.player.url|split:'&'|first }}" target="_blank">
+								<img class="video_thumbnail_img" src="{{ entry.media.thumbnail.0.url }}" />
+							</a>
+						</div>
+						<div class="video_title">
+							<a href="{{ entry.media.player.url|split:'&'|first }}" target="_blank">
+								{{ entry.title.text }}
+							</a>
+						</div>
+						<div class="video_info">
+							<span>{% format_local_time entry.published.text "%Y-%m-%dT%H:%M:%S.000Z" +8 "%Y-%m-%d %H:%M" %}</span>
+							<span> | </span>
+							<span>{% if entry.media.description.text %}{{ entry.media.description.text }}{% else %}<em>尚無說明</em>{% endif %}</span>
+						</div>
+						<div class="video_button_group">
+							<button type="button" class="video_button" class="video_button_group_item">編輯</button>
+							<form action="/file/youtube/delete" method="post" class="video_button_group_item">
+								<input type="hidden" name="video_id" value="{{ entry.id.text|split:'/'|last }}" />
+								<input type="hidden" name="next_url" value="/admin/archive" />
+								<input type="submit" class="video_button" value="刪除" />
+							</form>
+						</div>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
+		
+	</div>
+{% endblock %}

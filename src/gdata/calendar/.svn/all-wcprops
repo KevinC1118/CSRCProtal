@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/calendar
+END
+data.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/calendar/data.py
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/calendar/client.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/calendar/__init__.py
+END
+service.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/calendar/service.py
+END

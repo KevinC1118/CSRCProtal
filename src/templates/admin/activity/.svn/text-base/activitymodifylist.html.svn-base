@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}輔仁大學雲端服務研究中心_活動列表{% endblock %}     
+{% block css %}{% endblock %}       
+{% block js %}{% endblock %}   
+
+{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+
+{% block primarycontent %}
+                        <form method="post" action="/ActivityModify/GoSearch">
+					        <div>查詢活動編號:<input type="text" name="search_activity_id"/></div>
+					        <div><input type="submit" value="Search Activity"></div>  
+					    </form>
+					    {%if search_tag%}<!--搜尋活動-->
+					        <a href="/ActivityModify/Main">上一步</a></br>
+					                       查詢結果：</br>
+					        {%if searchactivity.count%}
+					            <table border="1" cellpadding="2" cellspacing="1">
+					            <tr>
+					            <td>活動代碼</td>
+					            <td>活動名稱</td>
+					            <td>功能</td>
+					            </tr>
+					            {% for search in searchactivity %}   <!-- print result -->
+					                {% if search %}
+					                <tr>
+					                    <td>{{search.activity_id}}</td>
+					                    <td>{{search.activity_name}}</td>
+					                    <td><a href='/Modify/Activity/id_{{search.activity_id}}' target='_blank'>活動修改</a>  <a href='/Modify/People/id_{{getall.activity_id}}' target='_blank'>報名狀況</a></td>
+					                </tr>
+					                {%endif%}
+					            {% endfor %}
+					        {% else %}
+					                           查無此活動
+					        {% endif %}
+					    {% else %}  <!--所有活動-->
+					                      所有活動：</br>
+					        {%if allactivity%}
+					            <table border="1" cellpadding="2" cellspacing="1">
+					            <tr>
+					            <td>活動代碼</td>
+					            <td>活動名稱</td>
+					            <td>功能</td>
+					            </tr>
+					            {% for getall in allactivity %}   <!-- print result -->
+					                {% if getall %}
+					                <tr>
+					                    <td>{{getall.activity_id}}</td>
+					                    <td>{{getall.activity_name}}</td>
+					                    <td><a href='/Modify/Activity/id_{{getall.activity_id}}' target='_blank'>活動修改</a>  <a href='/Modify/People/id_{{getall.activity_id}}' target='_blank'>報名狀況</a></td>
+					                </tr>
+					                {%endif%}
+					            {% endfor %}
+					        {% else %}
+					                                目前無活動
+					        {% endif %}
+					    {% endif %}
+					    </table>
+					    
+{% endblock %}
+
+{% block secondarycontent %}{% endblock %}
+
+{% block footer %}&copy; FJU CSRC. All rights reserved.{% endblock %}

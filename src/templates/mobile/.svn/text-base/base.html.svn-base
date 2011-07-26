@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta http-equiv="cache-control" content="max-age=200" />
+    <link href="/static/css/mobile_style.css" media="handheld, screen" rel="stylesheet" type="text/css" />
+    <title>{% block title %}雲端服務趨勢學程{% endblock %}</title>
+    <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+    <script>
+    $(document).ready(function(){    	
+    	var url = window.location.pathname;
+    	var urlsplit = url.split('/');
+    	var b = $('a[href$="' + urlsplit[urlsplit.length] + '"]');
+    	$('#menu > ul > li > a[href$="' + urlsplit[urlsplit.length - 1] + '"]').parent().addClass('active');
+    });
+    </script>
+	{% block css %}{% endblock %}
+</head>
+	<body>
+		<div class="mainwrapper">
+		    <div id="header">
+		        <font size=8>輔仁大學<br />
+		        雲端服務趨勢學程</font><br />
+		        <font size=7>Cloud Service Trend Program     
+		    </div>
+		    <div id="menu">
+            <ul>
+                <font size=7><li><a href="/mobile/cstp/introduction">宗旨</a></li>
+                <li><a href="/mobile/cstp/features">特色</a></li>
+                <li><a href="/mobile/cstp/courses">課程</a></li>
+                <li><a href="/mobile/cstp/rules">規則</a></li>
+                <li><a href="/mobile/cstp/admission">招生說明會</a></li></font>
+            </ul>
+        	</div>
+ 
+		    {% block content %}<div id="content"></div>{% endblock %}
+		    <!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="margin: 0 0 5px 5px;">
+				<a class="addthis_button_facebook"></a>
+				<a class="addthis_button_plurk"></a>
+				<a class="addthis_button_google"></a>
+				<a class="addthis_button_email"></a>
+			</div>
+			<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d79d8d84b957456"></script>
+			<!-- AddThis Button END -->
+		    <div id="footer">
+		        &copy; FJU CSRC. All rights reserved.
+		    </div>
+		</div>	
+	</body>
+</html>

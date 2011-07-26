@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/core.py
+END
+mock_http.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/mock_http.py
+END
+data.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/data.py
+END
+mock_service.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/mock_service.py
+END
+token_store.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/token_store.py
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/client.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/__init__.py
+END
+http.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/http.py
+END
+http_interface.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/http_interface.py
+END
+mock_http_core.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/mock_http_core.py
+END
+service.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/service.py
+END
+auth.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/auth.py
+END
+url.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/url.py
+END
+http_core.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/atom/http_core.py
+END

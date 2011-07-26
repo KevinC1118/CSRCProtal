@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="keywords" content="cloud,cloud service,service,research center,cloud service trend program,雲端,雲端服務,研究中心,雲端服務趨勢學程" />
+		<meta name="description" content="This is a site of Cloud Service Research Center at Fu Jen Univ at Taiwan,Teipei." />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		{% block meta %}{% endblock %}
+		<title>{% block title %}輔仁大學-雲端服務研究中心{% endblock %}</title>
+		<link href="/static/css/indexpage.css" rel="stylesheet" type="text/css" media="screen" />		
+		{% block css %}{% endblock %}		
+		{% block js %}{% endblock %}   
+	</head>
+	<body>	
+		<div id="outer">
+			<div id="inner">		
+				<div id="header" onclick="javascript:window.location='/'" style="cursor: pointer;">
+					<h1>雲端服務<span>研究中心</span></h1>
+					<h2>FJU CSRC</h2>
+				</div>			
+				<!-- <div id="splash"></div> 上方圖片 -->
+				
+				<div id="menu">
+				
+					<ul>
+						<li class="first"><a href="/">最新消息</a></li>
+						<li><a href="/ActivityMain">活動資訊</a></li>
+						<li><a href="/cstp">雲端服務趨勢學程</a></li>
+						<li><a href="http://www.elastercap.im.fju.edu.tw" target="_blank">Elaster CAP</a></li> 
+						<li><a href="/soa_erp">NEO SOA-ERP</a></li> 
+						<li><a href="#">相關資源</a></li>				
+					</ul>
+						{% if userName %}
+							<div class="login"><span style="cursor: pointer;" onclick="javascript:window.location='/admin'">{{ userName }}</span> | <a href="{{ logout }}">登出</a></div>
+						{% else %}
+							<div><a href="/admin" class="login">登入</a></div>
+						{% endif %}	
+						    
+				</div>					
+				<div id="primarycontent"><!-- 主要內容區 -->
+		         {% block primarycontent %}{% endblock %}
+				</div>				
+				<div id="secondarycontent"><!-- 右邊側欄 -->
+		        {% block secondarycontent %}					
+					<h3>關於本中心</h3>
+					<div class="content">
+						<!-- <img src="" class="picB" alt="" />
+						<strong>FJU CSRC</strong --><p>輔仁大學雲端服務研究中心成立於民國99年9月，致力於雲端相關技術的研究，並將研究成果推廣和應用至雲端服務趨勢學程之中。<a href="about">More ...</a></p>
+					</div>				
+					<h3>主題</h3>
+					<div class="content">
+					<!-- 
+						<ul class="linklist">
+							<li class="first"><a href="#">Accumsan congue (32)</a></li>
+							<li><a href="#">Dignissim nec augue (14)</a></li>
+							<li><a href="#">Nunc ante elit nulla (83)</a></li>
+							<li><a href="#">Aliquam suscipit (74)</a></li>
+						</ul>
+					 -->
+					</div>
+		        {% endblock %}
+				</div>			
+				<div id="footer"><!-- 底部資訊 -->
+				{% block footer %}	
+					&copy; FJU CSRC. All rights reserved.
+				{% endblock %}
+				</div>
+			</div>		
+		</div>
+		<script type="text/javascript" src="http://widgets.amung.us/tab.js"></script><script type="text/javascript">WAU_tab('96l0a71vokdo', 'left-middle')</script>
+	</body>
+</html>

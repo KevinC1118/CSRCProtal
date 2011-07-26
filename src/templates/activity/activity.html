@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+		{% block title %}輔仁大學雲端服務研究中心{% endblock %}
+		{% block css %}
+			<link type="text/css" href="../static/css/jquery-ui-1.8.10.custom.css" rel="stylesheet" /><link type="text/css" href="../static/css/jquery-ui-1.8.10.custom.css" rel="stylesheet" />
+		{% endblock %}		
+		{% block js %}
+			<script type="text/javascript" src="../static/js/jquery-1.4.4.min.js"></script>
+        	<script type="text/javascript" src="../static/js/jquery-ui-1.8.10.custom.min.js"></script>
+			<script type="text/javascript">
+                    $(function(){
+                        // Accordion
+                        $("#primarycontent").accordion({ 
+                            header: ".header",
+                            clearStyle: true,
+                            collapsible: true,
+                            active: false,
+                            icons: false
+                            });
+                        
+                        //hover states on the static widgets
+                        $('#dialog_link, ul#icons li').hover(
+                            function() { $(this).addClass('ui-state-hover'); }, 
+                            function() { $(this).removeClass('ui-state-hover'); }
+                        );
+                        
+                        
+                        $('.header > h3 > span').each(function(index, obj){
+                        	
+                        	$(obj).css({
+                        		'white-space': 'nowrap',
+                        		'overflow': 'hidden',
+                        		'display': 'inline-block'
+                        	});
+                        	
+                        	if($(obj).width() > 500) {
+                        		$(obj).width(500);
+                        		$(obj).attr('title', $(obj).text());
+                        		$(obj).after('<span title="' + $(obj).text() + '"> ...</span>')
+                        	}
+                        });
+                    });
+                    
+                    function ReplaceAll(strOrg,strFind,strReplace)
+					{
+    					return strOrg.replace(new RegExp(strFind,"g"),strReplace);
+					}
+        </script>   
+		
+		{% endblock %}   
+
+				{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+				    
+
+				{% block primarycontent %}
+						{% for activities in activity %}
+							<!- 抓取全部的活動並產生連結 ->
+						    <div class="post">
+                				<div class="header">
+                    				<h3><span>{{ activities.activity_name }}</span></h3>
+                    				<div class="date">{{ activities.sign_start}}</div>
+                    				
+                    				
+                    				
+                				</div>
+                				<div class="content" style="border: none;background: none; padding: 0;">       
+                   					
+		                        <input type="hidden" value="{{activities.content}}" id="content_{{activities.activity_id}}">
+ 										<script type="text/javascript">
+ 											
+                                            a = document.getElementById("content_{{activities.activity_id}}").value;
+                                            var regex= /\n/gi;
+                                            document.write("<div>");
+                                            document.write(a.replace(new RegExp("\n","g"),"<br />"));
+                                            document.write("</div>");
+                        				</script>
+                        				
+                        				<div>
+                        				<br /><br />
+				     			<a href=/activity/selected_activity?id={{ activities.activity_id }}>詳全文</a>
+			     			</div>
+									<br/><br/>
+									
+	                				<div class="footer">
+		                    			<ul>                          
+	                        				<li>
+		                            			<!-- AddThis Button BEGIN -->
+		                        				<div class="addthis_toolbox addthis_default_style ">
+		                        				<a href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=ra-4d79d8d84b957456" class="addthis_button_compact">Share</a>
+		                        				<span class="addthis_separator">|</span>
+		                        				<a class="addthis_button_facebook"></a>
+		                        				<a class="addthis_button_plurk"></a>
+		                        				<a class="addthis_button_2tag"></a>
+		                        				<a class="addthis_button_google"></a>
+		                        				</div>
+		                        				<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+		                        				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d79d8d84b957456"></script>
+		                        				<!-- AddThis Button END -->
+	                        				</li>
+	                    				</ul>
+	                				</div>	
+                				</div>
+            				</div>
+            									
+				     		 
+						{% endfor %}
+		        {% endblock %}
+		        {% block secondarycontent %}					
+					<h3>關於本中心</h3>
+					<div class="content">
+						<img src="" class="picB" alt="123" />
+						<p><strong>FJU CSRC</strong><br></br>雲端服務研究中心<a href="#">More ...</a></p>
+					</div>				
+					<h3>Topics</h3>
+					<div class="content">
+						<ul class="linklist">
+							<li class="first"><a href="#">Accumsan congue (32)</a></li>
+							<li><a href="#">Dignissim nec augue (14)</a></li>
+							<li><a href="#">Nunc ante elit nulla (83)</a></li>
+							<li><a href="#">Aliquam suscipit (74)</a></li>
+						</ul>
+					</div>
+		        {% endblock %}
+				{% block footer %}	
+					&copy; FJU CSRC. All rights reserved.
+				{% endblock %}

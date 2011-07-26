@@ -1,0 +1,87 @@
+{% extends "file/youtube/upload_form.html" %}
+
+{% block head %}
+	<script type="text/javascript">
+		<!--
+		function fileSelected() {
+			var file = document.getElementById('file').files[0];
+			if (file) {
+				var fileSize = 0;
+				if (file.size > 1024 * 1024)
+					fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+				else
+					fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+				
+				document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+				document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+				document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+				document.getElementById('go').disabled = false;
+			} else {
+				document.getElementById('fileName').innerHTML = '';
+				document.getElementById('fileSize').innerHTML = '';
+				document.getElementById('fileType').innerHTML = '';
+				document.getElementById('go').disabled = true;
+			}
+		}
+		//-->
+	</script>
+{% endblock %}
+
+{% block page_content %}
+	<form id="upload_file_form" action="{{ post_url }}?nexturl={{ next_url }}" method="post" enctype="multipart/form-data">
+		<input id="file" name="file" type="file" onchange="fileSelected()" />
+		<div id="drag_drop_file">
+			<span class="drop-instructions">拖曳任意影片到這個框框裡。</span>
+			<span class="drop-over">放下影片以選取。</span>
+		</div>
+		<div id="fileName"></div>
+		<div id="fileSize"></div>
+		<div id="fileType"></div>
+		<br />
+		<input id="token" name="token" type="hidden" value="{{ youtube_token }}" />
+		<input id="go" type="submit" value="Upload" disabled="disabled" />
+	</form>
+
+	<script type="text/javascript">
+		<!--
+		var dropbox;
+		dropbox = document.getElementById("drag_drop_file");
+		dropbox.addEventListener("dragleave", dragleave, false);
+		dropbox.addEventListener("dragenter", dragenter, false);
+		dropbox.addEventListener("dragover", dragover, false);
+		dropbox.addEventListener("drop", drop, false);
+		
+		function dragleave(e) {
+			var target = e.target;
+			if (target && target === dropbox) {
+				this.className = "";
+			}
+			e.preventDefault();
+			e.stopPropagation();
+		}
+		
+		function dragenter(e) {
+			this.className = "over";
+			e.preventDefault();
+			e.stopPropagation();
+		}
+
+		function dragover(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
+		
+		function drop(e) {
+			handleFiles(e.dataTransfer.files);
+			this.className = "";
+			e.preventDefault();
+			e.stopPropagation();	
+		}
+		
+		function handleFiles(files) {
+			if (typeof files !== "undefined") {
+			}
+		}
+		//-->
+	</script>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "file/youtube/upload_form.html" %}
+
+{% block head %}
+	<script type="text/javascript">
+		<!--
+		function closeWindow() {
+			window.close();
+		}
+		//-->
+	</script>
+{% endblock %}
+
+{% block page_content %}
+	{% if message %}
+		<p>{{ message|safe }}</p>
+		{% if link_code %}
+			<br />
+			<label for="link_code">連結程式碼</label><br />
+			<input id="link_code" type="text" value='{{ link_code|escape }}' readonly="readonly" />
+			<br /><br />
+			<label for="embed_code">嵌入程式碼</label><br />
+			<input id="embed_code" type="text" value='{{ embed_code|escape }}' readonly="readonly" />
+			<br />
+			<script type="text/javascript" language="javascript">
+				<!--
+				document.getElementById("link_code").onclick = function() {this.select();}
+				document.getElementById("embed_code").onclick = function() {this.select();}
+				-->
+			</script>
+		{% endif %}
+	{% endif %}
+	<br />
+	<button id="go" type="button" onclick="closeWindow();">Return</button>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block css %}{% endblock %}       
+{% block js %}{% endblock %}   
+
+{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+
+{% block primarycontent %}
+                    <a href = "/CreateActivity/Main">創建活動</a>
+                    <a href = "/ActivityModify/Main">活動修改/回文/報名名單</a>
+{% endblock %}
+
+{% block secondarycontent %}{% endblock %}
+               
+{% block footer %}  &copy; FJU CSRC. All rights reserved.{% endblock %}

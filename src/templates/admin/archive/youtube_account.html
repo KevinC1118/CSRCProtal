@@ -1,0 +1,26 @@
+{% extends "admin/archive/base.html" %}
+
+{% block title %}Youtube帳號設定 | 輔仁大學雲端服務研究中心{% endblock %}
+
+{% block primarycontent %}
+	<h3>Youtube帳號設定</h3>
+	
+	<div class="content">
+		<span>目前Youtube帳號： {% if account %}{{ account.email }}{% else %}None{% endif %}</span>
+		<br /><br />
+		<div>
+			<span>{% if account %}修改{% else %}新增{% endif %}帳號</span>
+			<br /><br />
+			<form action="/admin/archive/youtube/account/edit" method="post">
+				<input type="hidden" name="key"{% if account %} value="{{ account.key }}"{% endif %} />
+				<label for="email">Email</label>
+				<input id="email" type="text" name="email"{% if account %} value="{{ account.email }}"{% endif %} />
+				<br /><br />
+				<label for="password">Password</label>
+				<input id="password" type="password" name="password" />
+				<br /><br />
+				<input type="submit" />
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/core.py
+END
+test_data.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/test_data.py
+END
+gauth.py
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/gauth.py
+END
+data.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/data.py
+END
+urlfetch.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/urlfetch.py
+END
+sample_util.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/sample_util.py
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/client.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/__init__.py
+END
+service.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/service.py
+END
+auth.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/auth.py
+END
+test_config.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/test_config.py
+END
+apps_property.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/apps_property.py
+END

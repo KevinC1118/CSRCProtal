@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}公告內容{% endblock %}
+
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css" />
+{% endblock %}
+
+
+
+{% block login %}
+     <div class="login">{{ user }}</div>
+{% endblock %}
+
+
+{% block primarycontent %}
+        <a href="../../admin/publish">回公告管理頁</a><br />
+{% for publish in publishs %} 
+    公告類別：{{ publish.type }}<br>
+    公告主旨：{{ publish.title }}<br>
+    公告日期：{{ publish.publish_date|date:"Y-m-d"  }}<br>
+    公告內容：{{ publish.content  }}<br>
+{% endfor %}
+
+{% endblock %}
+
+{% block secondarycontent %}
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}輔仁大學雲端服務研究中心_創建活動{% endblock %}
+
+            
+{% block css %}<link rel="stylesheet" type="text/css" href="/static/css/jquery-calendar.css" />   {% endblock %}       
+{% block js %}        
+		<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="/static/js/jquery-calendar.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[
+            $(document).ready(function (){ 
+                $("#calendar_ss, #calendar_se, #calendar_as, #calendar_ae").calendar();
+            });
+        //]]>
+            function check()
+            {
+                if(document.getElementById("checkbox").checked)
+                {
+                    document.getElementById('input_display_id').style.display='block';
+                    document.getElementById('label_id').style.display='block';
+                }
+                else
+                {
+                    document.getElementById('input_display_id').style.display='none';
+                    document.getElementById('label_id').style.display='none';
+                }
+            }
+            //
+            function reg_add()
+            {
+                activity_name = document.add.activity_name.value; //活動名稱*
+                sign_StartDateTime = document.add.sign_StartDateTime.value; //報名開始時間*
+                sign_EndDateTime = document.add.sign_EndDateTime.value;   //報名結束時間*
+                activity_StartDateTime = document.add.sign_StartDateTime.value;   //活動開始時間*
+                activity_EndDateTime = document.add.sign_EndDateTime.value;   //活動結束時間*
+                site = document.add.site.value;   //地點*
+                limit_num = document.add.limit_num.value; //人數限制
+                activity_id = document.add.activity_id.value; //活動id
+                tag = true;
+               
+                if(activity_name == ''){
+                    document.getElementById("span_activity").innerHTML="請輸入活動名稱";
+                    tag = false;
+                }
+                if(sign_StartDateTime == ''){
+                    document.getElementById("span_ss").innerHTML="請輸入報名開始時間";
+                    tag = false;
+                }
+                if(sign_EndDateTime == ''){
+                    document.getElementById("span_se").innerHTML="請輸入報名結束時間";
+                    tag = false;
+                }
+                if(activity_StartDateTime == ''){
+                    document.getElementById("span_as").innerHTML="請輸入活動開始時間";
+                    tag = false;
+                }
+                if(activity_EndDateTime == ''){
+                    document.getElementById("span_ae").innerHTML="請輸入活動結束時間";
+                    tag = false;
+                }
+                if(site == ''){
+                    document.getElementById("span_site").innerHTML="請輸入活動地點";
+                    tag = false;
+                }
+                if(!document.getElementById("checkbox").checked){ //無勾選
+                     activity_id = ''; //忽略內容,傳送空字串
+                }
+                    
+                if(tag)
+                    document.add.submit();
+        }
+        </script>
+{% endblock %}   
+
+{% block login %}<div><a href="/admin" class="login">登入</a></div>{% endblock %}
+{% block primarycontent %}
+                    <form method="post" action="/CreateActivity/GoCreate" name="add">
+                        <div>活動名稱:<input type="text" name="activity_name" id="activity_name"/><span id="span_activity" style="color:red">*</span></div>
+                        <div>活動說明:
+                            <br><textarea name="content" cols="45" rows="5"></textarea></div>
+                        <br><div>活動報名時間：
+                            <br>　開始:<input name= "sign_StartDateTime" "type="text" id="calendar_ss" value="{{sign_start}}" readonly="true"/><span id="span_ss" style="color:red">*</span>
+                            <br>　結束:<input name= "sign_EndDateTime" "type="text" id="calendar_se" value="{{sign_end}}" readonly="true"/><span id="span_se" style="color:red">*</span>
+                        </div>
+                        <br><div>活動時間:
+                            <br>　開始:<input name= "activity_StartDateTime" "type="text" id="calendar_as" value="{{activity_start}}" readonly="true"/><span id="span_as" style="color:red">*</span>
+                            <br>　結束:<input name= "activity_EndDateTime" "type="text" id="calendar_ae" value="{{activity_end}}" readonly="true"/><span id="span_ae" style="color:red">*</span>
+                        </div>
+                        
+                        <br> <div>活動地點:<input type="text" name="site" id="site"/><span id="span_site" style="color:red">*</span></div>
+                        <br> <div>人數限制:<input type="text" name="limit_num" id="limit_num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/><!-- 只能輸入數字 --></div>
+                        <br> <div>
+                            <input name="checkbox" type="checkbox" id="checkbox" onClick="check();"/>外連活動請選取(目前開放設定openfoundry)<label style="color:red">本項目創建活動時請特別注意,創建完成後無法修改!</label>
+                            <label id="label_id" style="display:none">活動編號:</label><input type="text" id="input_display_id" name="activity_id" style="display:none" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        </div>
+                        <br><div><input type="button" onClick="reg_add();" value="Submit"></div>
+                    </form>
+{% endblock %}
+
+{% block secondarycontent %}{% endblock %}
+{% block footer %}  &copy; FJU CSRC. All rights reserved.{% endblock %}

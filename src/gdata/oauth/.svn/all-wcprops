@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/oauth
+END
+CHANGES.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/oauth/CHANGES.txt
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/oauth/__init__.py
+END
+rsa.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/oauth/rsa.py
+END

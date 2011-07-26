@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/docs
+END
+data.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/docs/data.py
+END
+client.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/docs/client.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/docs/__init__.py
+END
+service.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csrc/!svn/ver/88/CSRCPortal/branches/1/src/gdata/docs/service.py
+END

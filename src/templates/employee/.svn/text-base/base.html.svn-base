@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block css %}
+<link type="text/css" rel="stylesheet" href="/static/css/publish_browse.css"/>
+<link rel="stylesheet" href="/static/css/ui.datepicker.css"	type="text/css" charset="utf-8"/>
+<style type="text/css">
+#secondarycontent {
+	width: 300px;
+}
+</style>
+{% endblock %}
+{% block secondarycontent %}
+{% endblock %}

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/csrc/!svn/ver/81/CSRCPortal/branches/1/src/admin/activity
+END
+sendmail.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csrc/!svn/ver/81/CSRCPortal/branches/1/src/admin/activity/sendmail.py
+END
+activitymodifylist.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/admin/activity/activitymodifylist.py
+END
+createactivity.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/admin/activity/createactivity.py
+END
+activitymain.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/admin/activity/activitymain.py
+END
+modify.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csrc/!svn/ver/74/CSRCPortal/branches/1/src/admin/activity/modify.py
+END

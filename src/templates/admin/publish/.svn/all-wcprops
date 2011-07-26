@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/templates/admin/publish
+END
+publish.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/templates/admin/publish/publish.html
+END
+publish_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/templates/admin/publish/publish_detail.html
+END
+updatepublish.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/templates/admin/publish/updatepublish.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csrc/!svn/ver/65/CSRCPortal/branches/1/src/templates/admin/publish/base.html
+END

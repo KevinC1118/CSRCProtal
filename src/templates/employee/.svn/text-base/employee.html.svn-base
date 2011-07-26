@@ -1,0 +1,76 @@
+{% extends "employee/base.html" %}
+
+{% block title %}工讀時數資料{% endblock %}
+
+{% block js %}
+<script src="/static/js/jquery-ui-1.8.12.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/js/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/js/employee.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block primarycontent %}
+<div style="padding-bottom: 10px;"><input type="button" value="列印時數表" onclick="print()"/></div>
+<font size="4">
+{% if select_year and select_month %}
+    {{select_year}}年{{select_month}}月
+{% endif %}
+總時數：{{ total_hour }}&nbsp;&nbsp;&nbsp;總金額：{{ total_pay }}
+</font>
+<table class="centered-table">
+	<tr>
+		<th>名字</th>
+       <th>帳號</th>
+       <th>時薪</th>
+	</tr>
+	<tr>
+		<td>{{em_data.0.name}}</td>
+       <td>{{em_data.0.mail}}</td>
+       <td>{{em_data.0.hourly_pay}}</td>
+	</tr>
+</table>
+<table class="centered-table">
+   <tr>
+       <th>日期</th>
+       <th>時間</th>
+       <th>地點</th>
+       <th>工作摘要</th>
+       <th>金額</th>
+       <th>時數</th>
+   </tr>
+   {% for worker in working_hours %}
+   <tr>
+       <td>{{ worker.working_date }}</td>
+       <td>{{ worker.working_bhour }}~{{ worker.working_ehour }}</td>
+       <td>{{ worker.working_area }}</td>
+       <td>{{ worker.working_content }}</td>
+       <td>{{ worker.pay }}</td>
+       <td>{{ worker.subtotal }}</td>
+       <td>
+           <form action="delete_record" method="post"  onsubmit="javascript:return window.confirm('確定刪除?')">
+                <input type="hidden" value="{{ worker.id }}" name="delete_id">
+                <input type="submit" value="刪除">
+            </form>
+        </td>
+    </tr>
+	{% endfor %}
+</table>
+{% endblock %}
+
+{% block secondarycontent %}
+<h3>查詢歷史紀錄：</h3>
+<div class="content">
+<select id="year"></select>
+<select id="month"></select>
+<button type="button" onclick="search()">瀏覽</button>
+</div>
+<h3>新增工讀紀錄：</h3>
+<div class="content">
+	<form action="/employee/add_record" method="post">
+	    <div>日期：<input type="text" size="10" id="dateinput" name="date"/></div>
+	    <div>時間：<select id="bhour" name="bhour"></select>～<select id="ehour" name="ehour"></select></div>
+	    <div>地點：<input type="text" size="10" name="area"/></div>
+	    <div>工作摘要：<input type="text" name="content"/></div>
+	    <input type="submit" value="送出"/>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "employee/base.html" %}
+
+{% block title %}工讀時數資料{% endblock %}
+
+{% block js %}
+<script src="/static/js/utils.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var href = window.location.href.split('/');
+	selectElementYear($('#year'), href[href.length - 2]);
+	selectElementMonth($('#month'), href[href.length - 1]);
+});
+function search() {
+    var year = $('#year').val();
+    var month = $('#month').val();
+    window.location.href = '/employee/show_monthrecord/' + year + '/' + month;
+}
+function print() {
+	var year = $('#year').val();
+    var month = $('#month').val();
+    window.location.href = '/employee/print_workinghours/' + year + '/' + month;
+}
+</script>
+{% endblock %}
+
+{% block primarycontent %}  
+<font size="5">
+{% if select_year and select_month %} 
+    {{select_year}}年{{select_month}}月
+{% endif %}
+總時數：{{ total_hour }}&nbsp;&nbsp;總支出：{{ total_pay }}
+</font>
+<table class="centered-table">
+    <tr>
+        <th>名字</th>
+        <th>帳號</th>
+        <th>時薪</th>
+    </tr>
+    <tr>
+        <td>{{em_data.0.name}}</td>
+        <td>{{em_data.0.mail}}</td>
+        <td>{{em_data.0.hourly_pay}}</td>               
+    </tr>
+</table>
+ <table class="centered-table">
+    <tr>
+        <th>日期</th>
+        <th>時間</th>
+        <th>地點</th>
+        <th>工作摘要</th>
+        <th>金額</th>
+        <th>時數</th>
+    </tr>
+    {% for worker in working_hours %}
+    <tr>
+        <td>{{ worker.working_date }}</td>
+        <td>{{ worker.working_bhour }}~{{ worker.working_ehour }}</td>
+        <td>{{ worker.working_area }}</td>
+        <td>{{ worker.working_content }}</td>
+        <td>{{ worker.pay }}</td>
+        <td>{{ worker.subtotal }}</td>        
+        <td>
+            <form action="/employee/delete_record" method="post" onsubmit="javascript:return window.confirm('確定刪除?')">
+                <input type="hidden" value="{{ worker.id }}" name="delete_id">
+                <input type="hidden" value="{{ worker.worker }}" name="worker">                       
+                <input type="submit" value="刪除">
+            </form>
+        </td>                            
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+{% block secondarycontent %}
+<div onclick="window.location.href='/employee/'" style="cursor: pointer; padding-bottom: 10px;">返回</div>
+<h3>月份選擇：</h3>
+<div class="content">
+<select id="year"></select>
+<select id="month"></select>
+<button type="button" onclick="search()">瀏覽</button>
+<input type="button" value="列印時數表" onclick="print()">
+</div>
+{% endblock %}
+
+

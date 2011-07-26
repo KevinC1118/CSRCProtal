@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csrc/!svn/ver/99/CSRCPortal/branches/1/src/templates/admin/employee
+END
+browse_employee.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/csrc/!svn/ver/99/CSRCPortal/branches/1/src/templates/admin/employee/browse_employee.html
+END
+update_employee.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/csrc/!svn/ver/73/CSRCPortal/branches/1/src/templates/admin/employee/update_employee.html
+END
+admin_employee.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/csrc/!svn/ver/95/CSRCPortal/branches/1/src/templates/admin/employee/admin_employee.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csrc/!svn/ver/72/CSRCPortal/branches/1/src/templates/admin/employee/base.html
+END

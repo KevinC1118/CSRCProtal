@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script type="text/javascript" src="../static/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		
+		$('ul').each(function(index, obj){
+			
+			if($(obj).children().length > 2) {
+				
+				$(obj).children().hide();
+				$(obj).prev().text($(obj).prev().text() + ' (總共有' + $(obj).children().length + '篇留言)'); 
+				$(obj).prev().css('cursor', 'pointer');
+				
+				$(obj).prev().click(function(){
+					
+					if($(obj).children().is(':hidden'))
+					{
+						$(obj).children().show('fast');
+					}
+					else
+					{
+						$(obj).children().hide('fast');
+					}
+				});
+				
+			}
+		})
+		
+	});
+</script>
+
+{% endblock %}
+
+{% block primarycontent %}
+
+	{% for y in obj %}
+	<span>{{ y.0 }}</span>
+	<ul style="list-style-position: inside;">
+		{% for x in y.1 %}
+		<li>{{ x }}</li>
+		{% endfor %}
+	</ul>
+	{% endfor %}
+{% endblock %}

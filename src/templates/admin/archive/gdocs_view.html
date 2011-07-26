@@ -1,0 +1,31 @@
+{% extends "admin/archive/base.html" %}
+
+{% block title %}文件清單 | 輔仁大學雲端服務研究中心{% endblock %}
+
+{% block primarycontent %}
+        <table class="centered-table">
+                <tr>
+                    <th>標題</th>
+                    <th>連結</th>
+                </tr>
+            	{% for entry in feed.entry %}
+                    <tr>
+                        <td>{{ entry.title.text }}</td>                      
+                        <td><a href='javascript:slice("{{entry.resource_id.text}}");'>Link</a></td>
+                    </tr>
+            	{% endfor %}
+        </table>
+        
+{% endblock %}
+
+{% block js %}
+	<script>
+		function slice(str){
+			var link = "https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=";
+			var s = str;
+			window.location.href = link+s.slice(5);
+		}
+	</script>
+
+
+{% endblock %}
