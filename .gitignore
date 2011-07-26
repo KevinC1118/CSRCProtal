@@ -1,3 +1,4 @@
-.svn
+.svn/
 .pydevproject
 .settings/
+*.pyc
