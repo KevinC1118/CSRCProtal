@@ -1,4 +1,4 @@
 .svn
 .pydevproject
 .settings
-src/*.pyc
+*.pyc
