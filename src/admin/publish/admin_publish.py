@@ -14,31 +14,29 @@ from google.appengine.api import users
 
 def publishList(request):
      
-    publishs = Publish.all().order('-publish_date').fetch(10)
+    publishs = Publish.all().order('-publish_date')
     template_values = {'publishs': publishs,
                        'userName': users.get_current_user().nickname().split('@')[0],
                        'logout': users.create_logout_url('/')}
                   
     return render_to_response('admin/publish/publish.html', template_values)    
   
-class Insert_Publish(webapp.RequestHandler):
-    def post(self):
+def insert_Publish(request):
                 
-        max = 0
-        publish_query = Publish.all().order('-id')
-        publishs = publish_query.fetch(5)
-        for publish in publishs :
-            if max < publish.id:
-                max = publish.id
+    publish = Publish.gql('ORDER BY id DESC').get()
+    max = (publish.id + 1) if publish else 0
             
-        bulletin = Publish()            
-        bulletin.title = self.request.get('title')
-        bulletin.content = self.request.get('content')
-        bulletin.type = self.request.get('type')
-        bulletin.id = max+1
-#        bulletin.publish_date = datetime.datetime.now(TaiwanTimeZone())
-        bulletin.put()
-        self.redirect('/admin/publish')
+    bulletin = Publish()            
+    bulletin.title = request.POST['title']
+    bulletin.content = request.POST['content']
+    bulletin.type = request.POST['type']
+    bulletin.id = max + 1
+#    bulletin.publish_date = datetime.datetime.now(TaiwanTimeZone())
+    bulletin.put()
+    
+    return redirect('/admin/publish')
+#        self.redirect('/admin/publish')
+
 
 class Delete_Publish(webapp.RequestHandler):
     def post(self, delete_id):

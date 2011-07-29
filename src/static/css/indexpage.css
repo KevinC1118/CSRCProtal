@@ -264,7 +264,7 @@ ul.linklist li.first {
 
 #primarycontent .post .footer {
 	position: relative;
-	top: -10px;
+	top: -1px;
 	background: url('../images/a33.gif') repeat-x;
 	height: 64px;
 }

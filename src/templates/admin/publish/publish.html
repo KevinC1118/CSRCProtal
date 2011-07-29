@@ -22,10 +22,7 @@
 	</script>
     <script type="text/javascript">
 	   function checkForm() {
-	    if (window.confirm("確定刪除")) {
-	     return true;
-	    }
-	    return false;
+	   		return window.confirm("確定刪除");
 	   }
     </script>
 {% endblock %}
@@ -63,7 +60,7 @@
             {% endfor %}
         </table>
         
-        <form action="/publish/insert_publish" method="post">
+        <form action="insert_publish" method="post">
             <div>公告類別: <input type="text" name="type" /></div>
             <div>公告標題: <input type="text" name="title" size="80" /></div>
             <div>公告內容：<textarea id="content" name="content"></textarea></div>

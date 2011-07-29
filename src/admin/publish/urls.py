@@ -4,11 +4,11 @@ Created on 2011/5/6
 @author: korprulu
 '''
 from django.conf.urls.defaults import patterns
-from admin.publish.admin_publish import publishList
+from admin.publish.admin_publish import publishList, insert_Publish
 
 urlpatterns = patterns('',
                        (r'^/?$', publishList),
-#                       (r'^add_record/?$'),
+                       (r'^insert_publish/?$', insert_Publish),
 #                       (r'^delete_record/?$', Delete_Record),
 #                       (r'^update_record/?$'),
 #                       (r'^add_employee/?$', addEmployee),

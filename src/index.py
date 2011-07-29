@@ -6,7 +6,7 @@ from google.appengine.api import users
 def mainPage(request):
 
     publishs = Publish.all().order('-publish_date')
-        
+    
     template_values = {'publishs': publishs}
                 
     if users.get_current_user():
