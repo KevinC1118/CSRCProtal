@@ -18,6 +18,10 @@
 	border: 1px solid;
 }
 </style>
+<style scoped="scoped">
+	ul.star-shaped-bullet { margin: 0; list-style: none; text-align: left }
+	ul.star-shaped-bullet li:before { content: "\2606\a0" }
+</style>
 {% endblock %}
 
 {% block primarycontent %} 
@@ -29,8 +33,8 @@
 					<table>
                         <tr>
                             <td></td>
-                            <td><center><font size="3"><b>課程名稱</b></font></center></td>
-                            <td><center><font size="3"><b>學分數/選別</b></font></center></td>
+                            <td style="font-weight: bold; font-size: 16px;text-align: center;">課程名稱</td>
+                            <td style="font-weight: bold; font-size: 16px;text-align: center;">學分數/選別</td>
                         </tr>					
 						<tr>
 							<td rowspan="3">先修課程</td>
@@ -132,17 +136,10 @@
                         </tr>                                                                                                                        						
 					</table>         
 					<br />
-					
-					<style scoped="scoped">
-					   ul.star-shaped-bullet { margin: 0; list-style: none; text-align: left }
-					   ul.star-shaped-bullet li:before { content: "\2606\a0" }
-					</style>
-					<font color="red">
-					<ul class="star-shaped-bullet">					
+					<ul class="star-shaped-bullet" style="color: red;">					
 					    <li>學程總學分數：24學分</li>
 					    <li>碩士班及在職碩士班同學可以雲端應用為主題的碩士論文抵2門必修課</li>
 					</ul>
-					</font>
 			        <br />
 					
 					<p>雖然學程學生必須修過Java程式設計先修課程，也可以任意搭配核心課程，但由於背景不同，建議IT背景和非IT背景同學可參考以下課程地圖：</p>
